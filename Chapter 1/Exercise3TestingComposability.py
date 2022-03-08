@@ -1,4 +1,4 @@
-def test_identity(f: "A to B") -> bool:
+def test_identity(f: "A to B", test: "A") -> bool:
   
   # Defining the identity function
   def id(item: "A") -> "A":
@@ -8,7 +8,7 @@ def test_identity(f: "A to B") -> bool:
   def compose(f: "A to B", g: "B to C") -> "A to C":
     return lambda x: g(f(x))
 
-  if compose(f, id) == f and compose(id, f) == f: 
+  if compose(f, id)(test) == f(test) and compose(id, f)(test) == f(test): 
     return True
 
   else:
@@ -16,5 +16,7 @@ def test_identity(f: "A to B") -> bool:
 
 
 if __name__ == "__main__":
-  print(test_identity(lambda x: x + 1))
-  print(test_identity(lambda y: f"{y} works!"))
+
+  print()
+  print(test_identity(lambda x: x + 1, 2))
+  print(test_identity(lambda y: f"{y} works!", "It"))
