@@ -17,6 +17,5 @@ def test_identity(f: "A to B", test: "A") -> bool:
 
 if __name__ == "__main__":
 
-  print()
   print(test_identity(lambda x: x + 1, 2))
   print(test_identity(lambda y: f"{y} works!", "It"))
